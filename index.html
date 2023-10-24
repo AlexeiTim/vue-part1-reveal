@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>VUE</h1>
+            <p>Прогрессивный фреймворк для создания пользовательских интерфейсов.</p>
+        </section>
+        <section>
+            <p>Использование Vue</p>
+            <ul>
+                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Улучшение статического
+                    HTML без этапа сборки</font></font></li>
+                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Встраивание в виде
+                    веб-компонентов на любую страницу</font></font></li>
+                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Одностраничное
+                    приложение (SPA)</font></font></li>
+                <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Fullstack/серверный
+                    рендеринг (SSR)</font></font></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Установить Node.js !!!</h2>
+        </section>
+        <section>
+            <p>Интерполяция</p>
+            <pre><code><span>Сообщение: {{ msg }}</span></code></pre>
+            <pre><code>{{ number + 1 }}
+
+{{ ok ? 'YES' : 'NO' }}
+
+{{ message.split('').reverse().join('') }}</code></pre>
+        </section>
+        <section>
+            <section>
+                <h3><p>Реактивность</p></h3>
+                <p class="fragment" data-fragment-index="1">Это способность фреймворка отслеживать изменения данных и автоматически обновлять представление. </p>
+            </section>
+            <section>
+                <p>v-bind</p>
+                <pre><code><!-- bind an attribute -->
+<img v-bind:src="imageSrc" />
+<!-- dynamic attribute name -->
+<button v-bind:[key]="value"></button>
+<!-- shorthand -->
+<img :src="imageSrc" />
+<!-- shorthand dynamic attribute name -->
+<button :[key]="value"></button>
+<!-- with inline string concatenation -->
+<img :src="'/path/to/images/' + fileName" />
+<!-- class binding -->
+<div :class="{ red: isRed }"></div>
+<div :class="[classA, classB]"></div>
+<div :class="[classA, { classB: isB, classC: isC }]"></div></code></pre>
+            </section>
+            <section>
+                <p>v-model</p>
+                <pre><code><input v-model="searchText" /></code></pre>
+                <pre><code>
+<input
+    :value="searchText"
+    @input="searchText = $event.target.value"
+/>
+                </code></pre>
+            </section>
+            <section>
+                <p>computed</p>
+                <img src="./img/computed.png" alt="conputed">
+             </section>
+            <section>
+                <p>watch</p>
+                <img src="./img/watch.png" alt="watch">
+            </section>
+            <section>
+                <p>События</p>
+                <img src="./img/$event.png" alt="on-click">
+                <img src="./img/@click.png" alt="@click">
+                <img src="./img/event-mod.png" alt="click-mod">
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    })
+</script>
+</body>
+</html>
